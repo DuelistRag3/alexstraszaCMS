@@ -24,15 +24,17 @@
 
 ## Table Of Contents
 
-* [About the Project](#about-the-project)
-* [Built With](#built-with)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Roadmap](#roadmap)
-* [Contributing](#contributing)
-* [License](#license)
-* [Authors](#authors)
+- [Table Of Contents](#table-of-contents)
+- [About The Project](#about-the-project)
+- [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+  - [Creating A Pull Request](#creating-a-pull-request)
+- [License](#license)
+- [Authors](#authors)
 
 ## About The Project
 
@@ -53,18 +55,19 @@ The easiest way to start using AlexstraszaCMS is to use Laravels build-in Docker
 
 ### Prerequisites
 
-##### Prerequisites when using Docker
+<ins>Prerequisites when using Docker</ins>
 * Docker
 [Get Docker](https://docs.docker.com/get-docker/)
 
 Everything else will be managed by docker itself
 
-##### Prerequisites when using a webserver
+<ins>Prerequisites when using a webserver</ins>
 * any webserver (apache2, nginx, etc..)
 * composer installed
 * PHP >= 8.1
+
 | PHP Extensions |
-|:---------------|
+| :------------- |
 | Ctype          |
 | cURL           |
 | DOM            |
@@ -108,8 +111,9 @@ This section only covers on how to install AlexstraszaCMS on Linux (Ubuntu) to s
 2. Install php and all needed extension:
 This command will install php8.2 and all needed extensions
 ```sh
-sudo apt install openssl php8.2 php8.2-ctype php8.2-curl php8.2-dom php8.2-fileinfo php8.2-filter php8.2-hash php8.2-mbstring php8.2-openssl php8.2-pcre php8.2-mysql php8.2-session php8.2-tokenizer php8.2-xml php8.2-zip
+sudo apt install openssl php8.2 php8.2-common php8.2-curl php8.2-mbstring php8.2-mysql php8.2-xml php8.2-zip
 ```
+*if this command failes, you need to add php8.2 reposetory use [this](https://computingforgeeks.com/how-to-install-php-8-2-on-ubuntu/) tutorial*
 
 3. Install [Composer](https://getcomposer.org/doc/00-intro.md)
 
