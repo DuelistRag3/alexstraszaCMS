@@ -63,7 +63,8 @@ class InstallerServiceProvider extends ServiceProvider
      */
     public function registerViews()
     {
-        $themePath = base_path('Themes/'.Theme::current().'/views/modules/'. $this->moduleNameLower);
+        Theme::set('installer');
+        $themePath = base_path('Themes/'.Theme::get()['name'].'/views/modules/'. $this->moduleNameLower);
 
         $viewPath = resource_path('views/modules/' . $this->moduleNameLower);
 

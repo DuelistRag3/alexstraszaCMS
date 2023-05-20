@@ -2,9 +2,9 @@
 
 namespace Modules\Installer\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Contracts\Support\Renderable;
 
 class InstallerController extends Controller
 {

@@ -12,6 +12,5 @@
 */
 
 Route::prefix('installer')->group(function() {
-    Theme::set('installer');
-    Route::get('/', 'InstallerController@index');
+        Route::get('/', 'InstallerController@index');
 });

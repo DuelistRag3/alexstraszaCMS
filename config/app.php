@@ -159,6 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Shipu\Themevel\Providers\ThemevelServiceProvider::class,
 
         /*
          * Application Service Providers...
