@@ -8,6 +8,6 @@
     <title>{{ config('app.name') }} @yield('title')</title>
 </head>
 <body>
-    
+    <img src="{{ themes('default:img/AlexstraszaCMS.png') }}" alt="CMS Logo">
 </body>
 </html>
