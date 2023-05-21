@@ -20,7 +20,6 @@ class Installed
         $config = config('app.installed');
 
         if($route) {
-            echo('true');
             switch($config) {
                 case false:
                     return $next($request);
@@ -29,7 +28,7 @@ class Installed
                     return redirect(route('home.index'));
                     break;
             }
-        } else {
+        } else if (!$route) {
             switch($config) {
                 case false:
                     return redirect(route('installer.index'));
