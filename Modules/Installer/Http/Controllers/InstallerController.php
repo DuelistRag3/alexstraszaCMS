@@ -3,6 +3,7 @@
 namespace Modules\Installer\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Shipu\Themevel\Facades\Theme;
 use Illuminate\Routing\Controller;
 use Illuminate\Contracts\Support\Renderable;
 
@@ -14,6 +15,7 @@ class InstallerController extends Controller
      */
     public function index()
     {
+        Theme::set('installer');
         return view('installer::index');
     }
 
