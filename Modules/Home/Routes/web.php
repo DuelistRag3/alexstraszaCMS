@@ -13,7 +13,7 @@ use Shipu\Themevel\Facades\Theme;
 |
 */
 
-Route::prefix('home')->group(function() {
+Route::prefix('home')->name('home.')->group(function() {
     Theme::set(config('theme.active'));
-    Route::get('/', 'HomeController@index');
+    Route::get('/', 'HomeController@index')->name('index');
 });

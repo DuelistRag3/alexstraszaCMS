@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('installer')->group(function() {
-        Route::get('/', 'InstallerController@index');
+Route::prefix('installer')->name('installer.')->group(function() {
+        Route::get('/', 'InstallerController@index')->name('index');
 });
