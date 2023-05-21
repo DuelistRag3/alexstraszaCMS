@@ -15,6 +15,8 @@
   </p>
 </p>
 
+<div align="center">
+
 ![Downloads](https://img.shields.io/github/downloads/DuelistRag3/alexstraszaCMS/total?style=for-the-badge) 
 ![Release](https://img.shields.io/github/v/release/DuelistRag3/alexstraszaCMS?color=green&include_prereleases&style=for-the-badge)
 ![Contributors](https://img.shields.io/github/contributors/DuelistRag3/alexstraszaCMS?color=dark-green&style=for-the-badge) 
@@ -22,6 +24,8 @@
 ![Stargazers](https://img.shields.io/github/stars/DuelistRag3/alexstraszaCMS?style=for-the-badge) 
 ![Issues](https://img.shields.io/github/issues/DuelistRag3/alexstraszaCMS?style=for-the-badge) 
 ![License](https://img.shields.io/github/license/DuelistRag3/alexstraszaCMS?style=for-the-badge) 
+
+</div>
 
 ## Table Of Contents
 
