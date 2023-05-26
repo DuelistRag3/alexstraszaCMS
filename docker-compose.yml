@@ -1,7 +1,12 @@
 version: '3'
 services:
     alexstraszacms:
-        build: .
+        build:
+            contect: .
         ports: 
             - 8080:80
+#        depends_on:
+#            - mariadb
+#    mariadb:
+
 

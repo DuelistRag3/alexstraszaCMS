@@ -1,4 +1,12 @@
 FROM php:8.2.6-apache
+RUN a2dissite 000-default \
+    && a2enmod rewrite \
+    && a2enmod headers
+COPY laravel.conf /etc/apache2/sites-available/000-default.conf
+COPY laravel.conf /etc/apache2/sites-available/
+RUN a2ensite 000-default \
+    && a2ensite laravel
+COPY php-laravel.ini /usr/local/etc/php/conf.d
 RUN apt-get update -y && apt-get install -y \
     libxml2-dev \
     libzip-dev \
@@ -9,8 +17,9 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php \
     && php -r "unlink('composer-setup.php');" \
     && mv composer.phar /usr/local/bin/composer
-COPY 000-default.conf /etc/apache2/site-available/000-default.conf
 RUN service apache2 restart
 COPY . /var/www/html
 WORKDIR /var/www/html
-RUN composer install
+RUN composer install --no-dev
+RUN cp .env.example .env \
+    && php artisan key:generate
