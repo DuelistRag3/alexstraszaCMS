@@ -1,0 +1,60 @@
+version: '3.7'
+services:
+
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: alexstraszacms
+    container_name: alexstraszaCMS-app
+    restart: unless-stopped
+    tty: true
+    environment:
+      # App configuration values
+      - APP_NAME=alexstraszaCMS
+      - APP_URL=http://localhost
+      # Database configuration values
+      - DB_CONNECTION=mysql
+      - DB_HOST=127.0.0.1
+      - DB_PORT=3306
+      - DB_DATABASE=alexstraszacms
+      - DB_USERNAME=root
+      - DB_PASSWORD=
+    working_dir: /var/www/html
+    volumes:
+      - ./app-volume:/var/www/html
+    networks:
+      - alexstraszaNET
+
+  nginx:
+    container_name: alexstraszaCMS-nginx
+    image: nginx:alpine
+    working_dir: /var/www/html
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8081:80"
+      - "8843:443"
+    volumes:
+      - ./app-volume:/var/www/html
+      - ./docker/nginx/configs:/etc/nginx/conf.d
+    environment:
+      - NGINX_ENVSUBST_OUTPUT_DIR=/etc/nginx
+    networks:
+      - alexstraszaNET
+
+  db:
+    image: mariadb
+    container_name: alexstraszaCMS-db
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: changeme
+    tty: true
+    ports:
+      - "3306:3306"
+      
+
+#Docker Networks
+networks:
+  alexstraszaNET:
+    driver: bridge
