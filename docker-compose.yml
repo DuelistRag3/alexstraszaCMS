@@ -19,10 +19,10 @@ services:
       - DB_PORT=3306
       - DB_DATABASE=alexstraszacms
       - DB_USERNAME=root
-      - DB_PASSWORD=
+      - DB_PASSWORD=changeme
     working_dir: /var/www/html
     volumes:
-      - ./app-volume:/var/www/html
+      - alexstraszaCMS:/var/www/html
     networks:
       - alexstraszaNET
 
@@ -36,10 +36,8 @@ services:
       - "8081:80"
       - "8843:443"
     volumes:
-      - ./app-volume:/var/www/html
+      - alexstraszaCMS:/var/www/html
       - ./docker/nginx/configs:/etc/nginx/conf.d
-    environment:
-      - NGINX_ENVSUBST_OUTPUT_DIR=/etc/nginx
     networks:
       - alexstraszaNET
 
@@ -58,3 +56,6 @@ services:
 networks:
   alexstraszaNET:
     driver: bridge
+volumes:
+  alexstraszaCMS:
+    driver: local

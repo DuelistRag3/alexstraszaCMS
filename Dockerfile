@@ -26,9 +26,15 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo_pgsql \
     && docker-php-source delete 
 
+COPY src /var/www/html/
+
+COPY src/.env.example /var/www/html/.env
+
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-WORKDIR /var/www/html
-
 RUN composer install
+
+RUN chown -R www-data:www-data /var/www/html
+
+RUN php artisan key:generate
